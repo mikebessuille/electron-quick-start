@@ -1,0 +1,18 @@
+{
+  "name": "cpp_addon",
+  "version": "1.0.0",
+  "description": "A C++ addon for Mike's electron project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "cmake-js compile"
+  },
+  "author": "Mike Bessuille",
+  "license": "ISC",
+  "dependencies": {
+    "node-addon-api": "^8.0.0"
+  },
+  "devDependencies": {
+    "cmake-js": "^7.3.0"
+  }
+}
