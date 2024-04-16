@@ -26,8 +26,11 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
-  mainWindow.loadFile('index.html')
+  // and load the index.html of the app.  (This loaded the static html file from the electron quickstart example)
+  //mainWindow.loadFile('index.html')
+
+  // Load the react app.  (From an example I found:)
+  mainWindow.loadURL('http://localhost:3000'); // Load the React app
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()

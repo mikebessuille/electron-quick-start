@@ -25,7 +25,13 @@ cd electron-quick-start
 # Install dependencies
 npm install
 # Run the app
+# npm start   <<< MRB: It was this on its own, .... but now it is: >>>
+
+# *** MRB ***
+# Run the react server (react app opens in a browser)
 npm start
+# Run the electron application (opens localhost:3000 which is running from the line above)
+npm run electron-run
 ```
 
 Note: If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
