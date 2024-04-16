@@ -4,6 +4,7 @@ temporary
 
 # dependencies
 /node_modules
+/CPP_Addon/node_modules
 /.pnp
 .pnp.js
 
