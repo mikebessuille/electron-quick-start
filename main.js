@@ -1,14 +1,3 @@
-// React test - TEMPORARY!  This clears the entire application and replaces it with basic react
-/*
-import { createRoot } from 'react-dom/client';
-
-// Clear the existing HTML content
-document.body.innerHTML = '<div id="app"></div>';
-
-// Render your React component instead
-const root = createRoot(document.getElementById('app'));
-root.render(<h1>Hello, world</h1>);
-*/
 
 // Modules to control application life and create native browser window
 const { app, BrowserWindow } = require('electron')
@@ -29,8 +18,19 @@ function createWindow () {
   // and load the index.html of the app.  (This loaded the static html file from the electron quickstart example)
   //mainWindow.loadFile('index.html')
 
-  // Load the react app.  (From an example I found:)
-  mainWindow.loadURL('http://localhost:3000'); // Load the React app
+  // Load the react app that is already running (from "npm start").  (From an example I found:)
+  // mainWindow.loadURL('http://localhost:3000'); 
+
+  // Modified based on https://medium.com/free-code-camp/building-an-electron-application-with-create-react-app-97945861647c
+  // We will load the running localhost app if it's development, but for production we'll load the static index.html
+  // file that was generated when we run "npm run build"
+  const startUrl = process.env.ELECTRON_START_URL || 
+    url.format({
+      pathname: path.join(__dirname, '/../build/index.html'),
+      protocol: 'file:',
+      slashes: true
+    });
+  mainWindow.loadURL(startUrl);
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()

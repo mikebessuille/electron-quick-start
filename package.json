@@ -8,9 +8,11 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "electron-run": "electron ."
+    "electron-run-OLD": "electron .",
+    "electron-run": "set ELECTRON_START_URL=http://localhost:3000 && electron ."
   },
   "repository": "https://github.com/electron/electron-quick-start",
+  "homepage": "./",
   "keywords": [
     "Electron",
     "Mike"
