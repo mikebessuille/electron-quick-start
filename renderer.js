@@ -13,7 +13,7 @@ worker.onmessage = function(event)
     // replace the contents of the html document at the h1 tag
     // document.querySelector('h2').innerHTML = "native addon add function(3, 4): " + event.data;
     
-    // MRB: replace the contents of the h2 tag
+    // MRB: replace the contents of the element with the h2 tag
     document.querySelector('h2').innerHTML = "native addon add function(3, 4): " + event.data;
 
 

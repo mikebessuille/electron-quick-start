@@ -2,9 +2,13 @@
  *  MRB: This file was created based on ..\renderer.js, and is specifically for the react application
  */
 
+
 import {createRoot} from 'react-dom/client';
 
-var worker = new Worker('./cppworker.js');
+// TODO: This line causes a syntax error...
+// var worker = new Worker('./cppworker.js');
+
+/*
 worker.onmessage = function(event)
 { 
     // print result on console
@@ -15,21 +19,25 @@ worker.onmessage = function(event)
 
     // MRB: replace the contents of the tag whose id="replacewithcpp"
     const domNode = document.getElementById('replacewithcpp');
-    const root = createRoot(domNode);
-    const mytext = "native addon add function(3,4): " + event.data;
-    root.render(mytext);
+    domNode.innerHTML = "native addon add function(3, 4): " + event.data;
+
+    // MRB: Not sure why this doesn't work...
+    // const root = createRoot(domNode);
+    // const mytext = "native addon add function(3,4): " + event.data;
+    // root.render(mytext);
 
     // terminate webworker
     worker.terminate();
     // set it to undefined
     worker = undefined;
-}
+};
 
 
 worker.onerror = function (event)
 {
     console.log(event.message, event);
 };
+*/
 
 function DisplayCPPResult() {
     return (

@@ -18,7 +18,9 @@ function createWindow () {
   })
 
   // and load the index.html of the app.  (This loaded the static html file from the electron quickstart example)
-  //mainWindow.loadFile('index.html')
+  // if you uncomment this line, and comment the block below that loads the main window from the startURL, 
+  // then the electron app will correctly call the cppaddon.
+  // mainWindow.loadFile('index.html')
 
   // Load the react app that is already running (from "npm start").  (From an example I found:)
   // mainWindow.loadURL('http://localhost:3000'); 
@@ -26,6 +28,7 @@ function createWindow () {
   // Modified based on https://medium.com/free-code-camp/building-an-electron-application-with-create-react-app-97945861647c
   // We will load the running localhost app if it's development, but for production we'll load the static index.html
   // file that was generated when we run "npm run build"
+  
   const startUrl = process.env.ELECTRON_START_URL || 
     url.format({
       pathname: path.join(__dirname, '/../build/index.html'),
@@ -33,6 +36,7 @@ function createWindow () {
       slashes: true
     });
   mainWindow.loadURL(startUrl);
+  
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()

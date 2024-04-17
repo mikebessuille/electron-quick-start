@@ -1,6 +1,4 @@
-/*
-* MRB: 
-*/
+// MRB:
 
 //address of native addon
 const {add} = require('../CPP_Addon/build/Release/addon.node'); 
