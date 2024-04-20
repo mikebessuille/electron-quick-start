@@ -1,8 +1,7 @@
 import './App.css';
 //import './callcppworker.js';
-//import CPPResultComponent from './callcppworker.js';
+import CPPResultComponent from './callcppworker.js';
 
-/*
 function MikeApp() {
   return (
     <div className="MikeApp">
@@ -13,9 +12,9 @@ function MikeApp() {
     </div>
   );
 }
-*/
 
 // Simple version without <CPPResultComponent /> because it just isn't working with the worker thread.
+/*
 function MikeApp() {
   return (
     <div className="MikeApp">
@@ -25,6 +24,7 @@ function MikeApp() {
     </div>
   );
 }
+*/
 
 export default MikeApp;   
 

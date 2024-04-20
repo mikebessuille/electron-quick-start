@@ -1,14 +1,17 @@
 // cppworker.js
 
 // TODO:  Make this call the CPP Addon
-// TODO: Fix this, right now this seems to create an infinite loop where this is run
-// over and over but none of the other stuff in callcppworker.js is ever run
+
+//address of native addon
+const {add} = require('./CPP_Addon/build/Release/addon.node'); 
+
 onmessage = function (event) {
     console.log('Received message from the main thread:', event.data);
   
     // Perform some computation
     const result = event.data * 2;
-  
+    // const result = add(3,4); // Calls the CPP Addon
+
     // Send the result back to the main thread
     postMessage(result);
 };

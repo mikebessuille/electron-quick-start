@@ -4,7 +4,7 @@ temporary
 
 # dependencies
 /node_modules
-/CPP_Addon/node_modules
+/src/CPP_Addon/node_modules
 /.pnp
 .pnp.js
 
@@ -13,7 +13,7 @@ temporary
 
 # production
 /build
-/CPP_Addon/build
+/src/CPP_Addon/build
 
 # misc
 .DS_Store
