@@ -10,7 +10,7 @@ onmessage = function (event) {
   
     // Perform some computation
     const result = event.data * 2;
-    // const result = add(3,4); // Calls the CPP Addon
+    // const result2 = add(3,4); // Calls the CPP Addon
 
     // Send the result back to the main thread
     postMessage(result);

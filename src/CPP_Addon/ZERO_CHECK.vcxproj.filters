@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\Dev\Mike-electron-quick-start\src\CPP_Addon\CMakeFiles\255039ddb2372e1aa35eb926952729ab\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{4828028C-40A2-367D-AC2A-117B78409520}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
