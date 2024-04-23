@@ -1,8 +1,33 @@
 import './App.css';
-//import './callcppworker.js';
 import CPPResultComponent from './callcppworker.js';
+import { channels } from './constants';
+
+// This doesn't work...  can't get the ipcRenderer
+/*
+import { getMainWindow } from 'electron-main-window';
+const mainWindow = getMainWindow();
+const { ipcRenderer } = mainWindow.require('electron');
+*/
 
 function MikeApp() {
+  // This stuff doesn't work...
+  /*
+  const sendTestEventMike = () => {
+    ipcRenderer.send(channels.TEST_EVENT_MIKE, { product: 'notebook' });
+  }
+
+  return (
+    <div className="MikeApp">
+      <header className="Mike-App-header">
+        <p>This is from <code>src/MikeApp.js</code></p>
+        <CPPResultComponent />
+        <p>This next button is from MikeApp.js and is for sending info from React to Electron</p>
+        <button onClick={sendTestEventMike}>Test Event Mike</button>
+      </header>
+    </div>
+  );
+  */
+
   return (
     <div className="MikeApp">
       <header className="Mike-App-header">
@@ -12,19 +37,6 @@ function MikeApp() {
     </div>
   );
 }
-
-// Simple version without <CPPResultComponent /> because it just isn't working with the worker thread.
-/*
-function MikeApp() {
-  return (
-    <div className="MikeApp">
-      <header className="Mike-App-header">
-        <p>This is from <code>src/MikeApp.js</code></p>
-      </header>
-    </div>
-  );
-}
-*/
 
 export default MikeApp;   
 

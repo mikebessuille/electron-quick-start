@@ -2,18 +2,25 @@
 // MRB:  This is the Electron application.  It loads the React application which is defined under \src
 
 // Modules to control application life and create native browser window
-const { app, BrowserWindow } = require('electron')
-const path = require('node:path')
+const { app, BrowserWindow, ipcMain, contextBridge } = require('electron');
+const path = require('node:path');
+const { channels } = require('./src/constants');
+
+// Global reference to the window object so we can reference it elsewhere...
+let mainWindow = NULL;
 
 function createWindow () {
   // Create the browser window.
-  const mainWindow = new BrowserWindow({
+  // Was: const mainWindow = ...
+  mainWindow = new BrowserWindow({
     width: 700,
     height: 900,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
-      nodeIntegration: true,
-      nodeIntegrationInWorker: true
+      nodeIntegration: true, // TODO: make this false, per https://stackoverflow.com/questions/62433323/using-the-electron-ipcrenderer-from-a-front-end-javascript-file
+      nodeIntegrationInWorker: true,
+      contextIsolation: true,
+      enableRemoteModule: false
     }
   })
 
@@ -36,10 +43,10 @@ function createWindow () {
       slashes: true
     });
   mainWindow.loadURL(startUrl);
-  
+
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools({ mode: 'detach' });
 }
 
 // This method will be called when Electron has finished
@@ -64,3 +71,18 @@ app.on('window-all-closed', function () {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
+
+
+// MRB: code to handle events from React sent to Electron
+// TODO ; don't have this working yet...
+ipcMain.on(channels.TEST_EVENT_MIKE, (event, arg) => 
+{
+  const { product } = arg;
+  console.log(product);
+});
+
+
+// Function I want to access on the frontend
+// per https://stackoverflow.com/questions/62433323/using-the-electron-ipcrenderer-from-a-front-end-javascript-file
+// TODO: fill this in...
+ipcMain.handle('')
