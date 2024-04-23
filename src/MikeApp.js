@@ -2,12 +2,13 @@ import './App.css';
 import CPPResultComponent from './callcppworker.js';
 import { channels } from './constants';
 
-// This doesn't work...  can't get the ipcRenderer
+// TODO: This doesn't work...  can't get the ipcRenderer
 /*
 import { getMainWindow } from 'electron-main-window';
 const mainWindow = getMainWindow();
 const { ipcRenderer } = mainWindow.require('electron');
 */
+
 
 function MikeApp() {
   // This stuff doesn't work...
@@ -28,6 +29,7 @@ function MikeApp() {
   );
   */
 
+  /* */
   return (
     <div className="MikeApp">
       <header className="Mike-App-header">
@@ -36,6 +38,7 @@ function MikeApp() {
       </header>
     </div>
   );
+  /**/
 }
 
 export default MikeApp;   

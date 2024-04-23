@@ -7,11 +7,11 @@ const path = require('node:path');
 const { channels } = require('./src/constants');
 
 // Global reference to the window object so we can reference it elsewhere...
-let mainWindow = NULL;
+let mainWindow;
 
 function createWindow () {
   // Create the browser window.
-  // Was: const mainWindow = ...
+  // Was: const mainWindow = ...   but now it's defined above globally
   mainWindow = new BrowserWindow({
     width: 700,
     height: 900,
@@ -19,8 +19,8 @@ function createWindow () {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true, // TODO: make this false, per https://stackoverflow.com/questions/62433323/using-the-electron-ipcrenderer-from-a-front-end-javascript-file
       nodeIntegrationInWorker: true,
-      contextIsolation: true,
-      enableRemoteModule: false
+      contextIsolation: false,
+      enableRemoteModule: true
     }
   })
 
