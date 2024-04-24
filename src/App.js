@@ -1,8 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
 import MikeApp from './MikeApp';
+import React, { useEffect } from 'react';
+
 
 function App() {
+  // This is from COPILOT
+  /*
+  useEffect(() => {
+    // Example: Send data to the main process
+    window.api.send('toMain', 'Hello from React!');
+
+    // Example: Receive data from the main process
+    window.api.receive('fromMain', (data) => {
+        console.log(`Received data from main process: ${data}`);
+    });
+  }, []); 
+  */
+  
   return (
     <div className="App">
       <header className="App-header">

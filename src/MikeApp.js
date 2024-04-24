@@ -8,6 +8,7 @@ import { getMainWindow } from 'electron-main-window';
 const mainWindow = getMainWindow();
 const { ipcRenderer } = mainWindow.require('electron');
 */
+//const { ipcRenderer } = require('electron');
 
 
 function MikeApp() {

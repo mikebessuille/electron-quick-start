@@ -16,5 +16,16 @@
 
     <!-- You can also require other files to run in this process -->
     <script src="./renderer.js"></script>
+
+    <!-- From COPILOT -->
+    <script>
+      // Load the preload script
+      require('./preload.js');
+
+      // Load your React app
+      const { render } = require('react-dom');
+      const App = require('./src/App.js').default;
+      render(<App />, document.getElementById('root'));
+  </script>
   </body>
 </html>

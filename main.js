@@ -4,6 +4,7 @@
 // Modules to control application life and create native browser window
 const { app, BrowserWindow, ipcMain, contextBridge } = require('electron');
 const path = require('node:path');
+const fs = require('fs');
 const { channels } = require('./src/constants');
 
 // Global reference to the window object so we can reference it elsewhere...
@@ -81,8 +82,13 @@ ipcMain.on(channels.TEST_EVENT_MIKE, (event, arg) =>
   console.log(product);
 });
 
+ipcMain.on(channels.TO_MAIN, (event, arg) => 
+{
+  console.log('toMain Message received!');
+});
+
 
 // Function I want to access on the frontend
 // per https://stackoverflow.com/questions/62433323/using-the-electron-ipcrenderer-from-a-front-end-javascript-file
 // TODO: fill this in...
-ipcMain.handle('')
+//ipcMain.handle('')
