@@ -21,13 +21,17 @@ window.addEventListener('DOMContentLoaded', () => {
 // BELOW IS FROM COPILOT
 const { contextBridge, ipcRenderer } = require('electron');
 console.log('PRELOAD!!! YAY!');
+// not sure why this doesn't work, when it works in main.js...
+// const { channels } = require('./src/constants');
 
 // Expose protected methods that allow the renderer process to use
 // the ipcRenderer without exposing the entire object
 contextBridge.exposeInMainWorld('ElectronAPI', {
     send: (channel, data) => {
         // Whitelist channels
-        let validChannels = ['toMain'];
+        //let validChannels = ['toMain'];
+        //let validChannels = [channels.TEST_EVENT_MIKE, channels.TO_MAIN];
+        let validChannels = ['toMain', 'test_event_mike']
         if (validChannels.includes(channel)) {
             ipcRenderer.send(channel, data);
         }

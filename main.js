@@ -74,16 +74,15 @@ app.on('window-all-closed', function () {
 
 
 // MRB: code to handle events from React sent to Electron
-// TODO ; don't have this working yet...
 ipcMain.on(channels.TEST_EVENT_MIKE, (event, arg) => 
 {
   const { product } = arg;
-  console.log(product);
+  console.log('TEST_EVENT_MIKE received in Electron; ', product);
 });
 
 ipcMain.on(channels.TO_MAIN, (event, arg) => 
 {
-  console.log('toMain Message received!');
+  console.log('toMain Message received! ', arg);
 });
 
 

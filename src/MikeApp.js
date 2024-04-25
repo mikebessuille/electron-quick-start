@@ -4,7 +4,9 @@ import { channels } from './constants';
 
 function MikeApp() {
   const sendTestEventMike = () => {
-    window.ElectronAPI.send(channels.TO_MAIN, { product: 'notebook' });
+    console.log(`MikeApp.js: sending a message from React to Electron`);
+    window.ElectronAPI.send(channels.TEST_EVENT_MIKE, { product: 'notebook' });
+    window.ElectronAPI.send(channels.TO_MAIN, 'Hi from react');
   }
 
   return (
