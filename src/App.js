@@ -6,17 +6,16 @@ import React, { useEffect } from 'react';
 
 function App() {
   // This is from COPILOT
-  /*
+  // Test the API's exposed from preload.js
   useEffect(() => {
     // Example: Send data to the main process
-    window.api.send('toMain', 'Hello from React!');
+    window.ElectronAPI.send('toMain', 'Hello from React!  Called from App.js');
 
     // Example: Receive data from the main process
-    window.api.receive('fromMain', (data) => {
-        console.log(`Received data from main process: ${data}`);
+    window.ElectronAPI.receive('fromMain', (data) => {
+        console.log(`Received data from main process: ${data}, called from App.js`);
     });
   }, []); 
-  */
   
   return (
     <div className="App">

@@ -10,12 +10,6 @@ const CPPResultComponent = () => {
     const [worker, setWorker] = useState(null);
   
     useEffect(() => {
-      // Create a new web worker
-      // This was the original version which worked without React...
-      // const myWorker = new Worker('./cppworker.js');
-      // This version gives an error and doesn't load the worker
-      //const myWorker = new WorkerFactory(cppworker);
-      // This works!
       const myWorker = new Worker(new URL('./cppworker.js', import.meta.url));
 
       // Set up event listener for messages from the worker

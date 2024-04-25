@@ -20,10 +20,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // BELOW IS FROM COPILOT
 const { contextBridge, ipcRenderer } = require('electron');
+console.log('PRELOAD!!! YAY!');
 
 // Expose protected methods that allow the renderer process to use
 // the ipcRenderer without exposing the entire object
-contextBridge.exposeInMainWorld('api', {
+contextBridge.exposeInMainWorld('ElectronAPI', {
     send: (channel, data) => {
         // Whitelist channels
         let validChannels = ['toMain'];

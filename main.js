@@ -18,9 +18,8 @@ function createWindow () {
     height: 900,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
-      nodeIntegration: true, // TODO: make this false, per https://stackoverflow.com/questions/62433323/using-the-electron-ipcrenderer-from-a-front-end-javascript-file
-      nodeIntegrationInWorker: true,
-      contextIsolation: false,
+      nodeIntegration: false, // this is the default
+      contextIsolation: true, // this is the default
       enableRemoteModule: true
     }
   })
