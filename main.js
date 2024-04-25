@@ -74,10 +74,15 @@ app.on('window-all-closed', function () {
 
 
 // MRB: code to handle events from React sent to Electron
+let return_val = 0; 
 ipcMain.on(channels.TEST_EVENT_MIKE, (event, arg) => 
 {
   const { product } = arg;
   console.log('TEST_EVENT_MIKE received in Electron; ', product);
+
+  // Return some information to React (handled in MikeApp.j by useEffect() )
+  return_val++;
+  event.sender.send(channels.FROM_MAIN, return_val );
 });
 
 ipcMain.on(channels.TO_MAIN, (event, arg) => 

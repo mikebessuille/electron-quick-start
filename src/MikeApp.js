@@ -1,6 +1,7 @@
 import './App.css';
 import CPPResultComponent from './callcppworker.js';
 import { channels } from './constants';
+import React, { useEffect } from 'react';
 
 function MikeApp() {
   const sendTestEventMike = () => {
@@ -8,6 +9,13 @@ function MikeApp() {
     window.ElectronAPI.send(channels.TEST_EVENT_MIKE, { product: 'notebook' });
     window.ElectronAPI.send(channels.TO_MAIN, 'Hi from react');
   }
+
+  // Receive data from the main process and update some element in my component
+  useEffect(() => {
+    window.ElectronAPI.receive(channels.FROM_MAIN, (data) => {
+        console.log(`Received data from main process: ${data}, called from MikeApp.js`);
+    });
+  }, []); 
 
   return (
     <div className="MikeApp">
