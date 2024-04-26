@@ -1,6 +1,5 @@
 // cppworker.js
 
-// TODO:  Make this call the CPP Addon
 
 //address of native addon
 const {add} = require('./CPP_Addon/build/Release/addon.node'); 

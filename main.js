@@ -6,6 +6,8 @@ const { app, BrowserWindow, ipcMain, contextBridge } = require('electron');
 const path = require('node:path');
 const fs = require('fs');
 const { channels } = require('./src/constants');
+//address of native addon
+const {add} = require('./src/CPP_Addon/build/Release/addon.node');
 
 // Global reference to the window object so we can reference it elsewhere...
 let mainWindow;
@@ -80,6 +82,10 @@ ipcMain.on(channels.TEST_EVENT_MIKE, (event, arg) =>
   const { product } = arg;
   console.log('TEST_EVENT_MIKE received in Electron; ', product);
 
+
+  // Test calling the CPP Addon 
+  return_val = add(return_val,2); // Call function of native addon
+
   // Return some information to React (handled in MikeApp.j by useEffect() )
   return_val++;
   event.sender.send(channels.FROM_MAIN, return_val );
@@ -95,3 +101,4 @@ ipcMain.on(channels.TO_MAIN, (event, arg) =>
 // per https://stackoverflow.com/questions/62433323/using-the-electron-ipcrenderer-from-a-front-end-javascript-file
 // TODO: fill this in...
 //ipcMain.handle('')
+
