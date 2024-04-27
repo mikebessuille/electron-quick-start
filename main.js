@@ -16,8 +16,8 @@ function createWindow () {
   // Create the browser window.
   // Was: const mainWindow = ...   but now it's defined above globally
   mainWindow = new BrowserWindow({
-    width: 700,
-    height: 900,
+    width: 800,
+    height: 1200,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: false, // this is the default

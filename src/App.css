@@ -1,9 +1,9 @@
 .App {
-  text-align: center;
+  text-align: left;
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 20vmin;
   pointer-events: none;
 }
 
@@ -18,24 +18,12 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: left;
+  justify-content: left;
+  font-size: 14px;
   color: white;
 }
 
-/*
-.App-header button {
-  border: none;
-  padding: 10px 20px;
-  background: #777;
-  color: #fff;
-  z-index: 1;
-  margin-top: 16px;
-  cursor: pointer;
-  outline: none;
-}
-*/
 
 .App-link {
   color: #61dafb;

@@ -1,3 +1,13 @@
 /* styles.css */
 
+* Set the base font size for the entire document */
+body {
+    font-size: 14px; /* Adjust this value as needed */
+}
+
+/* Optionally, you can target specific elements */
+p, span, div {
+    font-size: 0.9em; /* Relative font size (90% of the base size) */
+}
+
 /* Add styles here to customize the appearance of your app */
