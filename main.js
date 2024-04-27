@@ -8,6 +8,7 @@ const fs = require('fs');
 const { channels } = require('./src/constants');
 //address of native addon
 const {add} = require('./src/CPP_Addon/build/Release/addon.node');
+require('./TodoFileSystem');
 
 // Global reference to the window object so we can reference it elsewhere...
 let mainWindow;
@@ -95,6 +96,28 @@ ipcMain.on(channels.TO_MAIN, (event, arg) =>
 {
   console.log('toMain Message received! ', arg);
 });
+
+// Handlers for the Todolist
+const { saveTodoList, loadTodoList } = require('./TodoFileSystem');
+
+// Add handlers specifically for messages from Todo component (in React) to Electron
+// TODO: would love to be able to move these into TodoFileSystem...
+ipcMain.on(channels.SAVE_TODO, (event, arg) => 
+{
+    console.log('SAVE_TODO received in Electron; ');
+    saveTodoList( arg );
+});
+
+
+ipcMain.on(channels.LOAD_TODO, (event, arg) => 
+{
+    console.log('LOAD_TODO received in Electron; ');
+
+    const todoList = loadTodoList();
+    // send the loaded todo list back to React
+    event.sender.send(channels.TODO_LOADED, todoList );
+});
+
 
 
 // Function I want to access on the frontend

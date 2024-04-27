@@ -18,29 +18,30 @@ window.addEventListener('DOMContentLoaded', () => {
 })
 
 
-// BELOW IS FROM COPILOT
+// EXPORT FUNCTIONS FOR USE IN REACT
 const { contextBridge, ipcRenderer } = require('electron');
+
 console.log('PRELOAD!!! YAY!');
 // not sure why this doesn't work, when it works in main.js...
 // const { channels } = require('./src/constants');
 
-// Expose protected methods that allow the renderer process to use
-// the ipcRenderer without exposing the entire object
+// Expose protected methods that allow the renderer process (React) to use
+// the ipcRenderer and fs (filesystem) without exposing the entire object
 contextBridge.exposeInMainWorld('ElectronAPI', {
     send: (channel, data) => {
         // Whitelist channels
         //let validChannels = ['toMain'];
         //let validChannels = [channels.TEST_EVENT_MIKE, channels.TO_MAIN];
-        let validChannels = ['toMain', 'test_event_mike']
+        let validChannels = ['toMain', 'test_event_mike', 'savetodo', 'loadtodo']
         if (validChannels.includes(channel)) {
             ipcRenderer.send(channel, data);
         }
     },
     receive: (channel, func) => {
-        let validChannels = ['fromMain'];
+        let validChannels = ['fromMain', 'todoloaded'];
         if (validChannels.includes(channel)) {
             // Deliberately strip event as it includes `sender`
             ipcRenderer.on(channel, (event, ...args) => func(...args));
         }
-    }
+    },
 });
