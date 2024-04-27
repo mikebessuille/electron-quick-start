@@ -3,6 +3,7 @@ import CPPResultComponent from './callcppworker.js';
 import { channels } from './constants';
 import React, { useEffect } from 'react';
 import { useState } from 'react';
+import TodoList from './todolist.js'
 
 function MikeApp() {
   const [myVal, setMyVal] = useState(0);
@@ -29,9 +30,10 @@ function MikeApp() {
         <p>This is from <code>src/MikeApp.js</code></p>
         <CPPResultComponent />
         <p>This next button is from MikeApp.js and is for sending info from React to Electron</p>
-        <button onClick={sendTestEventMike}>Test Event Mike</button>
+        <button onClick={sendTestEventMike}>Send To Electron</button>
         <p>Value returned from Electron: {myVal}</p>
       </header>
+      <TodoList />
     </div>
   );
 }
